@@ -14,6 +14,39 @@ Drop a file or folder, set a password, a keyfile, or a recipient's public key �
 
 ---
 
+## Screenshots
+
+<table>
+<tr>
+<td align="center" width="50%">
+<img src="main.png" alt="Idle drop zone — drag files or folders to encrypt, drop a .zsec to decrypt" />
+<br /><sub><b>Idle drop zone</b> — drag files or folders to encrypt, drop a <code>.zsec</code> to decrypt.</sub>
+</td>
+<td align="center" width="50%">
+<img src="encrypt.png" alt="Encrypt screen — credentials, cipher, KDF strength, compression, output path" />
+<br /><sub><b>Encrypt screen</b> — password or public-key mode, optional keyfile, cipher and KDF cost, compression toggle.</sub>
+</td>
+</tr>
+<tr>
+<td align="center" width="50%">
+<img src="decrypt.png" alt="Decrypt screen — header preview before any credentials are entered" />
+<br /><sub><b>Decrypt screen</b> — header preview shows cipher, KDF cost and keyfile fingerprint before you type anything.</sub>
+</td>
+<td align="center" width="50%">
+<img src="keyfile-manager.png" alt="Keyfile Manager — generate a CSPRNG keyfile or an X25519 keypair" />
+<br /><sub><b>Keyfile Manager</b> — generate a 512-byte keyfile or an X25519 keypair, or inspect any key file's fingerprint.</sub>
+</td>
+</tr>
+<tr>
+<td align="center" colspan="2">
+<img src="settings.png" alt="Settings — cipher, KDF, chunk size, secure-delete, clipboard auto-clear and more" width="60%" />
+<br /><sub><b>Settings</b> — defaults for cipher, KDF cost, chunk size, secure-delete, clipboard auto-clear, randomized output filename.</sub>
+</td>
+</tr>
+</table>
+
+---
+
 ## Why ZEncrypt
 
 | Tool | Why it falls short for "encrypt this and send it" |

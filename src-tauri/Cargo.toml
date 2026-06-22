@@ -1,0 +1,63 @@
+[package]
+name = "zencrypt"
+version = "0.1.0"
+description = "Drag-and-drop file & folder encryptor"
+authors = ["TheHolyOneZ"]
+license = "GPL-3.0-or-later"
+edition = "2021"
+
+[lib]
+name = "zencrypt_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = ["tray-icon", "macos-private-api", "image-png"] }
+tauri-plugin-fs = "2"
+tauri-plugin-dialog = "2"
+tauri-plugin-opener = "2"
+tauri-plugin-os = "2"
+tauri-plugin-window-state = "2"
+tauri-plugin-single-instance = "2"
+
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "fs", "sync", "signal", "io-util"] }
+tokio-util = { version = "0.7", features = ["io"] }
+
+# Crypto (RustCrypto)
+aes-gcm = "0.10"
+chacha20poly1305 = "0.10"
+argon2 = "0.5"
+blake3 = "1"
+rand = "0.8"
+getrandom = "0.2"
+zeroize = { version = "1", features = ["derive"] }
+subtle = "2"
+x25519-dalek = { version = "2", features = ["static_secrets", "zeroize"] }
+
+# Compression + packing
+zstd = "0.13"
+tar = "0.4"
+
+# Storage + state
+rusqlite = { version = "0.31", features = ["bundled"] }
+dashmap = "6"
+uuid = { version = "1", features = ["v4", "serde"] }
+bitflags = "2"
+
+# Logging
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+# System info (for Argon2id RAM probe)
+sysinfo = { version = "0.32", default-features = false, features = ["system"] }
+
+[profile.release]
+panic = "abort"
+lto = "fat"
+codegen-units = 1
+strip = true
+opt-level = "z"

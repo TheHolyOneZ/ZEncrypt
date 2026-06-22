@@ -1,0 +1,63 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "ZEncrypt",
+  "version": "0.1.0",
+  "identifier": "com.zencrypt.app",
+  "build": {
+    "beforeDevCommand": "pnpm dev",
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "pnpm build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "macOSPrivateApi": true,
+    "windows": [
+      {
+        "label": "main",
+        "title": "ZEncrypt",
+        "width": 1100,
+        "height": 700,
+        "minWidth": 600,
+        "minHeight": 480,
+        "transparent": true,
+        "decorations": false,
+        "visible": true,
+        "center": true,
+        "titleBarStyle": "Overlay",
+        "windowEffects": {
+          "effects": ["mica", "acrylic"]
+        }
+      }
+    ],
+    "trayIcon": {
+      "id": "main-tray",
+      "iconPath": "icons/32x32.png",
+      "iconAsTemplate": false,
+      "menuOnLeftClick": false,
+      "tooltip": "ZEncrypt"
+    },
+    "security": {
+      "csp": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: asset: http://asset.localhost; font-src 'self' data:; connect-src 'self' ipc: http://ipc.localhost"
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "fileAssociations": [
+      {
+        "ext": ["zsec"],
+        "description": "ZEncrypt encrypted archive",
+        "role": "Editor",
+        "mimeType": "application/x-zsec"
+      }
+    ]
+  }
+}
